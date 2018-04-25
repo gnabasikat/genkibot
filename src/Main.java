@@ -20,6 +20,7 @@ public class Main {
 
         // Register a listener via the EventSubscriber annotation which allows for organisation and delegation of events
         cli.getDispatcher().registerListener(new MyEvents());
+        cli.getDispatcher().registerListener(new ReeeEvent());
 
         // Only login after all events are registered otherwise some may be missed.
         cli.login();
