@@ -10,7 +10,7 @@ public class SlapEvent {
 
         String message = event.getMessage().getContent();
         IGuild guild = event.getGuild();
-        String user = event.getAuthor().getNicknameForGuild(guild);
+        String user = event.getAuthor().getDisplayName(guild);
 
         if(message.toUpperCase().startsWith(BotUtils.BOT_PREFIX + "SLAP")) {
             String target = event.getMessage().getContent().substring(5, message.length());
