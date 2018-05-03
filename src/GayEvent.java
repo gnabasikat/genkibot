@@ -8,12 +8,16 @@ public class GayEvent {
     public void onMessageReceived(MessageReceivedEvent event) {
 
         String message = event.getMessage().getContent();
-        IGuild guild = event.getGuild();
-        String user = event.getAuthor().getDisplayName(guild);
 
-        if(message.toUpperCase().startsWith(BotUtils.BOT_PREFIX + "GAY")) {
-            String target = event.getMessage().getContent().substring(4, message.length());
-            BotUtils.sendMessage(event.getChannel(), user + " calls " + target + " gay!");
+        if (!message.contains("@everyone")) {
+
+            IGuild guild = event.getGuild();
+            String user = event.getAuthor().getDisplayName(guild);
+
+            if (message.toUpperCase().startsWith(BotUtils.BOT_PREFIX + "GAY")) {
+                String target = event.getMessage().getContent().substring(4, message.length());
+                BotUtils.sendMessage(event.getChannel(), user + " calls " + target + " gay!");
+            }
         }
     }
 }
